@@ -40,8 +40,20 @@
     .slider__item-text {
       align-self: flex-end;
 
+      @media (min-width: $tablet) {
+        transition-delay: .5s;
+        transition-duration: .7s;
+      }
+
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
+      }
+    }
+
+    &.swiper-slide-next {
+      .slider__item-text {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
   }
@@ -96,6 +108,14 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(25px);
+  transition: all .6s ease-out;
+
+  .swiper-slide-active & {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
